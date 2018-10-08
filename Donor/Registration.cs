@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Donor
 {
-    public partial class MainForm : Form
+    public partial class Registration : Form
     {
-        public MainForm()
+        public Registration()
         {
             InitializeComponent();
         }
