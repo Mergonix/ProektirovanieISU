@@ -9,3 +9,7 @@ C:\Users\Shumi\Desktop\Учеба\Donor\ProektirovanieISU\Donor\obj\Debug\Donor.
 C:\Users\Shumi\Desktop\Учеба\Donor\ProektirovanieISU\Donor\obj\Debug\Donor.exe
 C:\Users\Shumi\Desktop\Учеба\Donor\ProektirovanieISU\Donor\obj\Debug\Donor.pdb
 C:\Users\Shumi\Desktop\Учеба\Donor\ProektirovanieISU\Donor\obj\Debug\Donor.Registration.resources
+C:\Users\Shumi\Desktop\Учеба\Donor\ProektirovanieISU\Donor\obj\Debug\Donor.Authorization.resources
+C:\Users\Shumi\Desktop\Учеба\Donor\ProektirovanieISU\Donor\obj\Debug\Donor.Choose.resources
+C:\Users\Shumi\Desktop\Учеба\Donor\ProektirovanieISU\Donor\obj\Debug\Donor.MenuDonor.resources
+C:\Users\Shumi\Desktop\Учеба\Donor\ProektirovanieISU\Donor\obj\Debug\Donor.About.resources

@@ -10,23 +10,17 @@ using System.Windows.Forms;
 
 namespace Donor
 {
-    public partial class MainForm : Form
+    public partial class Choose : Form
     {
-        public MainForm()
+        public Choose()
         {
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Registration Reg = new Registration();
-            Reg.Show();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Choose Choose = new Choose();
-            Choose.Show();
+            Authorization log = new Authorization();
+            log.Show();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -35,9 +29,15 @@ namespace Donor
             log.Show();
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Registration reg = new Registration();
+            reg.Show();
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }
