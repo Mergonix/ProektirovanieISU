@@ -1,0 +1,16 @@
+﻿<Window x:Class="Property.MenuRealtor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MenuRealtor" Height="500" Width="800" Background="#FF98FF98">
+    <Grid>
+        <Image x:Name="Logo" Margin="28,10,571,349" Source="Images/Logo.png"/>
+        <Label Content="Недвижимость - это просто!" HorizontalAlignment="Left" Margin="258,41,0,0" VerticalAlignment="Top" Foreground="#FF3BA0E8" FontFamily="Calibri" FontSize="36" FontWeight="Bold"/>
+        <Image HorizontalAlignment="Left" Height="238" Margin="28,156,0,0" VerticalAlignment="Top" Width="235" Source="Images/dir.png"/>
+        <Label Content="Меню риелтора" HorizontalAlignment="Left" Margin="361,156,0,0" VerticalAlignment="Top" Foreground="#FF3BA0E8" FontFamily="Calibri" FontSize="36" FontWeight="Bold"/>
+        <Button Content="Клиенты" HorizontalAlignment="Left" Margin="268,215,0,0" VerticalAlignment="Top" FontFamily="Calibri" Background="#FF3BA0E8" Foreground="White" BorderBrush="#FF3BA0E8" Width="439" Height="30" />
+        <Button Content="Недвижимость" HorizontalAlignment="Left" Margin="268,250,0,0" VerticalAlignment="Top" FontFamily="Calibri" Background="#FF3BA0E8" Foreground="White" BorderBrush="#FF3BA0E8" Width="439" Height="30" />
+        <Button Content="Заключенные сделки" HorizontalAlignment="Left" Margin="268,285,0,0" VerticalAlignment="Top" FontFamily="Calibri" Background="#FF3BA0E8" Foreground="White" BorderBrush="#FF3BA0E8" Width="439" Height="30" />
+        <Button Content="Выход из учетной записи" HorizontalAlignment="Left" Margin="268,320,0,0" VerticalAlignment="Top" FontFamily="Calibri" Background="#FF3BA0E8" Foreground="White" BorderBrush="#FF3BA0E8" Width="439" Height="30" />
+
+    </Grid>
+</Window>

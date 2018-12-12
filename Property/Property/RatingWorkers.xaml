@@ -1,0 +1,17 @@
+﻿<Window x:Class="Property.RatingWorkers"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="RatingWorkers" Height="500" Width="800" Background="#FF98FF98">
+    <Grid>
+        <Image x:Name="Logo" Margin="28,10,571,349" Source="Images/Logo.png"/>
+        <Label Content="Недвижимость - это просто!" HorizontalAlignment="Left" Margin="258,41,0,0" VerticalAlignment="Top" Foreground="#FF3BA0E8" FontFamily="Calibri" FontSize="36" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="58,146,0,0" TextWrapping="Wrap" Text="Рейтинг сотрудников" VerticalAlignment="Top" Foreground="#FF3BA0E8" FontFamily="Calibri" FontSize="24" Width="143" TextAlignment="Center"/>
+        <Image HorizontalAlignment="Left" Height="173" Margin="43,239,0,0" VerticalAlignment="Top" Width="163" Source="Images/gr.png"/>
+        <Button Content="Ранг по количеству сделок" HorizontalAlignment="Left" Margin="258,146,0,0" VerticalAlignment="Top" FontFamily="Calibri" Background="#FF3BA0E8" Foreground="White" BorderBrush="#FF3BA0E8" Width="171" Height="30" />
+        <Button Content="Ранг по сумме сделок" HorizontalAlignment="Left" Margin="437,146,0,0" VerticalAlignment="Top" FontFamily="Calibri" Background="#FF3BA0E8" Foreground="White" BorderBrush="#FF3BA0E8" Width="171" Height="30" />
+        <Button Content="Печать" HorizontalAlignment="Left" Margin="613,146,0,0" VerticalAlignment="Top" FontFamily="Calibri" Background="#FF3BA0E8" Foreground="White" BorderBrush="#FF3BA0E8" Width="66" Height="30" />
+        <Button Content="Назад" HorizontalAlignment="Left" Margin="684,146,0,0" VerticalAlignment="Top" FontFamily="Calibri" Background="#FF3BA0E8" Foreground="White" BorderBrush="#FF3BA0E8" Width="66" Height="30" />
+        <DataGrid HorizontalAlignment="Left" Margin="258,192,0,0" VerticalAlignment="Top" Height="257" Width="492"/>
+
+    </Grid>
+</Window>

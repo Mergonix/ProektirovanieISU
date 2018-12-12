@@ -1,0 +1,17 @@
+﻿<Window x:Class="Property.Workers"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Workers" Height="500" Width="800" Background="#FF98FF98">
+    <Grid>
+        <Image x:Name="Logo" Margin="28,10,571,349" Source="Images/Logo.png"/>
+        <Label Content="Недвижимость - это просто!" HorizontalAlignment="Left" Margin="258,41,0,0" VerticalAlignment="Top" Foreground="#FF3BA0E8" FontFamily="Calibri" FontSize="36" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="43,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF3BA0E8" FontFamily="Calibri" FontSize="24" Width="163" TextAlignment="Center" Text="Сотрудники"/>
+        <Image HorizontalAlignment="Left" Height="173" Margin="43,208,0,0" VerticalAlignment="Top" Width="163" Source="Images/usergroup.png"/>
+        <Button Content="Печать" HorizontalAlignment="Left" Margin="566,146,0,0" VerticalAlignment="Top" FontFamily="Calibri" Background="#FF3BA0E8" Foreground="White" BorderBrush="#FF3BA0E8" Width="87" Height="30" />
+        <Button Content="Назад" HorizontalAlignment="Left" Margin="663,146,0,0" VerticalAlignment="Top" FontFamily="Calibri" Background="#FF3BA0E8" Foreground="White" BorderBrush="#FF3BA0E8" Width="87" Height="30" />
+        <DataGrid HorizontalAlignment="Left" Margin="258,192,0,0" VerticalAlignment="Top" Height="257" Width="492"/>
+        <Button Content="Добавить" HorizontalAlignment="Left" Margin="471,146,0,0" VerticalAlignment="Top" FontFamily="Calibri" Background="#FF3BA0E8" Foreground="White" BorderBrush="#FF3BA0E8" Width="87" Height="30" />
+        <TextBox HorizontalAlignment="Left" Height="29" Margin="258,146,0,0" TextWrapping="Wrap" Text="Введите параметр поиска" VerticalAlignment="Top" Width="208" Background="#FFE5E5E5" VerticalContentAlignment="Center"/>
+
+    </Grid>
+</Window>

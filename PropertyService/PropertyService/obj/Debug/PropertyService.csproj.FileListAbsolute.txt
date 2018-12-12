@@ -1,0 +1,7 @@
+C:\Users\tokin\source\repos\PropertyService\PropertyService\bin\PropertyService.dll.config
+C:\Users\tokin\source\repos\PropertyService\PropertyService\bin\PropertyService.dll
+C:\Users\tokin\source\repos\PropertyService\PropertyService\bin\PropertyService.pdb
+C:\Users\tokin\source\repos\PropertyService\PropertyService\obj\Debug\PropertyService.csprojAssemblyReference.cache
+C:\Users\tokin\source\repos\PropertyService\PropertyService\obj\Debug\PropertyService.csproj.CoreCompileInputs.cache
+C:\Users\tokin\source\repos\PropertyService\PropertyService\obj\Debug\PropertyService.dll
+C:\Users\tokin\source\repos\PropertyService\PropertyService\obj\Debug\PropertyService.pdb

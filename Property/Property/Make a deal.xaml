@@ -1,0 +1,23 @@
+﻿<Window x:Class="Property.Make_a_deal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Make_a_deal" Height="500" Width="800" Background="#FF98FF98">
+    <Grid>
+        <Image x:Name="Logo" Margin="28,10,571,349" Source="Images/Logo.png"/>
+        <Label Content="Недвижимость - это просто!" HorizontalAlignment="Left" Margin="258,41,0,0" VerticalAlignment="Top" Foreground="#FF3BA0E8" FontFamily="Calibri" FontSize="36" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="58,146,0,0" TextWrapping="Wrap" Text="База заключенных сделок" VerticalAlignment="Top" Foreground="#FF3BA0E8" FontFamily="Calibri" FontSize="24" Width="143" TextAlignment="Center"/>
+        <Image HorizontalAlignment="Left" Height="173" Margin="43,239,0,0" VerticalAlignment="Top" Width="163" Source="Images/doprovojd.png"/>
+        <TextBlock HorizontalAlignment="Left" Margin="348,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF3BA0E8" FontFamily="Calibri" FontSize="24" Width="294" TextAlignment="Center"><Run Language="ru-ru" Text="Заключение сделки"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="258,192,0,0" TextWrapping="Wrap" Text="Недвижимость" VerticalAlignment="Top" Background="#FF3BA0E8" Foreground="Black" FontFamily="Calibri" Width="120" TextAlignment="Center" Height="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="383,192,0,0" TextWrapping="Wrap" Text="Вид сделки" VerticalAlignment="Top" Background="#FF3BA0E8" Foreground="Black" FontFamily="Calibri" Width="120" TextAlignment="Center" Height="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="508,192,0,0" TextWrapping="Wrap" Text="Стоимость" VerticalAlignment="Top" Background="#FF3BA0E8" Foreground="Black" FontFamily="Calibri" Width="120" TextAlignment="Center" Height="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="633,192,0,0" TextWrapping="Wrap" Text="Дата" VerticalAlignment="Top" Background="#FF3BA0E8" Foreground="Black" FontFamily="Calibri" Width="120" TextAlignment="Center" Height="18"/>
+        <ComboBox HorizontalAlignment="Left" Margin="258,210,0,0" VerticalAlignment="Top" Width="120" Height="24"/>
+        <ComboBox HorizontalAlignment="Left" Margin="383,210,0,0" VerticalAlignment="Top" Width="120" Height="24"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="508,210,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Calibri" Background="#FFE5E5E5"/>
+        <DatePicker HorizontalAlignment="Left" Margin="633,210,0,0" VerticalAlignment="Top" Width="120" Height="24"/>
+        <Button Content="Заключить" HorizontalAlignment="Left" Margin="258,251,0,0" VerticalAlignment="Top" FontFamily="Calibri" Background="#FF3BA0E8" Foreground="White" BorderBrush="#FF3BA0E8" Width="245" />
+        <Button Content="Назад" HorizontalAlignment="Left" Margin="508,251,0,0" VerticalAlignment="Top" FontFamily="Calibri" Background="#FF3BA0E8" Foreground="White" BorderBrush="#FF3BA0E8" Width="245" />
+
+    </Grid>
+</Window>

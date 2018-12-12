@@ -1,0 +1,32 @@
+﻿<Window x:Class="Property.AddProperty"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="AddProperty" Height="500" Width="800" Background="#FF98FF98">
+    <Grid>
+        <Image x:Name="Logo" Margin="28,10,571,349" Source="Images/Logo.png"/>
+        <Label Content="Недвижимость - это просто!" HorizontalAlignment="Left" Margin="258,41,0,0" VerticalAlignment="Top" Foreground="#FF3BA0E8" FontFamily="Calibri" FontSize="36" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="43,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF3BA0E8" FontFamily="Calibri" FontSize="24" Width="163" TextAlignment="Center" Text="Моя недвижимость"/>
+        <Image HorizontalAlignment="Left" Height="173" Margin="43,239,0,0" VerticalAlignment="Top" Width="163" Source="Images/house.png"/>
+        <Button Content="Добавить" HorizontalAlignment="Left" Margin="236,293,0,0" VerticalAlignment="Top" FontFamily="Calibri" Background="#FF3BA0E8" Foreground="White" BorderBrush="#FF3BA0E8" Width="246" Height="30" />
+        <Button Content="Назад" HorizontalAlignment="Left" Margin="507,293,0,0" VerticalAlignment="Top" FontFamily="Calibri" Background="#FF3BA0E8" Foreground="White" BorderBrush="#FF3BA0E8" Width="246" Height="30" />
+        <TextBlock HorizontalAlignment="Left" Margin="236,194,0,0" TextWrapping="Wrap" Text="Вид недвижимости" VerticalAlignment="Top" Background="#FF3BA0E8" Foreground="White" FontFamily="Calibri" Width="53" TextAlignment="Center" Height="46"/>
+        <ComboBox HorizontalAlignment="Left" Margin="236,240,0,0" VerticalAlignment="Top" Width="53"/>
+        <ComboBox HorizontalAlignment="Left" Margin="294,240,0,0" VerticalAlignment="Top" Width="53"/>
+        <ComboBox HorizontalAlignment="Left" Margin="352,240,0,0" VerticalAlignment="Top" Width="53"/>
+        <TextBlock HorizontalAlignment="Left" Margin="294,194,0,0" TextWrapping="Wrap" Text="Тип объекта" VerticalAlignment="Top" Background="#FF3BA0E8" Foreground="White" FontFamily="Calibri" Width="53" TextAlignment="Center" Height="46"/>
+        <TextBlock HorizontalAlignment="Left" Margin="352,194,0,0" TextWrapping="Wrap" Text="Вид объекта" VerticalAlignment="Top" Background="#FF3BA0E8" Foreground="White" FontFamily="Calibri" Width="53" TextAlignment="Center" Height="46"/>
+        <TextBlock HorizontalAlignment="Left" Margin="410,194,0,0" TextWrapping="Wrap" Text="Количество комнат" VerticalAlignment="Top" Background="#FF3BA0E8" Foreground="White" FontFamily="Calibri" Width="53" TextAlignment="Center" Height="46"/>
+        <ComboBox HorizontalAlignment="Left" Margin="410,240,0,0" VerticalAlignment="Top" Width="53"/>
+        <TextBlock HorizontalAlignment="Left" Margin="468,194,0,0" TextWrapping="Wrap" Text="Общая площадь" VerticalAlignment="Top" Background="#FF3BA0E8" Foreground="White" FontFamily="Calibri" Width="53" TextAlignment="Center" Height="46"/>
+        <TextBlock HorizontalAlignment="Left" Margin="526,194,0,0" TextWrapping="Wrap" Text="Этаж, Этажей" VerticalAlignment="Top" Background="#FF3BA0E8" Foreground="White" FontFamily="Calibri" Width="53" TextAlignment="Center" Height="46"/>
+        <TextBlock HorizontalAlignment="Left" Margin="584,194,0,0" TextWrapping="Wrap" Text="Цена" VerticalAlignment="Top" Background="#FF3BA0E8" Foreground="White" FontFamily="Calibri" Width="53" TextAlignment="Center" Height="46"/>
+        <TextBlock HorizontalAlignment="Left" Margin="642,194,0,0" TextWrapping="Wrap" Text="Адрес" VerticalAlignment="Top" Background="#FF3BA0E8" Foreground="White" FontFamily="Calibri" Width="53" TextAlignment="Center" Height="46"/>
+        <TextBlock HorizontalAlignment="Left" Margin="700,194,0,0" TextWrapping="Wrap" Text="Описание" VerticalAlignment="Top" Background="#FF3BA0E8" Foreground="White" FontFamily="Calibri" Width="53" TextAlignment="Center" Height="46"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="468,237,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="53" Background="#FFE5E5E5" VerticalContentAlignment="Center"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="526,237,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="53" Background="#FFE5E5E5" VerticalContentAlignment="Center"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="584,237,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="53" Background="#FFE5E5E5" VerticalContentAlignment="Center"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="642,237,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="53" Background="#FFE5E5E5" VerticalContentAlignment="Center"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="700,237,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="53" Background="#FFE5E5E5" VerticalContentAlignment="Center"/>
+
+    </Grid>
+</Window>
