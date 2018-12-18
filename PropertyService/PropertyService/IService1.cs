@@ -13,63 +13,85 @@ namespace PropertyService
     public interface IService1
     {
         [OperationContract]
-        void AddClients(string FirstName, string LastName, string Patronymic, DateTime DateBirth, string Telephone, string Adress, int Users_ID);
+        void AddClients(Client client);
 
         [OperationContract]
-        List<List<string>> SelectClients();
+        List<Client> SelectClients();
 
         [OperationContract]
-        void AddRole(string Name);
+        void AddRole(Role role);
 
         [OperationContract]
-        List<List<string>> SelectRole();
+        List<Role> SelectRole();
 
         [OperationContract]
-        void AddDeal(DateTime DateDeal, int Realty_ID, int Realtor_ID, int Services_ID);
+        void AddDeal(Deal deal);
 
         [OperationContract]
-        List<List<string>> SelectDeal();
+        List<Deal> SelectDeal();
 
         [OperationContract]
-        void AddHouseType(string DescriptionHouse);
+        void AddHouseType(HouseType house_type);
 
         [OperationContract]
-        List<List<string>> SelectHouseType();
+        List<HouseType> SelectHouseType();
 
         [OperationContract]
-        void AddProperty_Type(string DescriptionType);
+        void AddProperty_Type(Property_Type property_type);
 
         [OperationContract]
-        List<List<string>> SelectProperty_Type();
+        List<Property_Type> SelectProperty_Type();
 
         [OperationContract]
-        void AddRealtor(string FirstName, string LastName, string Telephone, string Patronymic, int Users_ID);
+        void AddRealtor(Realtor realtor);
 
         [OperationContract]
-        List<List<string>> SelectRealtor();
+        List<Realtor> SelectRealtor();
 
         [OperationContract]
         bool FindByEmailUsers(string Email);
 
         [OperationContract]
+        List<Users> SelectUsers();
+
+        [OperationContract]
         Authentication Authentication(string Email, string Password);
 
+        [WebInvoke(Method = "POST", ResponseFormat = WebMessageFormat.Json)]
+        [OperationContract]
+        void AddUsers(Users user);
+
+        [OperationContract]
+        Users FindByIDUsers(int id);
+
+        [OperationContract]
+        Property_Type FindByIDProperty_Type(int id);
+
+        [OperationContract]
+        Object FindByIDObject(int id);
+
+        [OperationContract]
+        HouseType FindByIDHouseType(int id);
+
+        [OperationContract]
+        Client FindByIDClient(int id);
+
+        [OperationContract]
+        Realty FindByIdRealty(int id);
+
+        [OperationContract]
+        Realtor FindByIDRealtor(int id);
+
+        [OperationContract]
+        Services FindByIDServices(int id);
+
+        [OperationContract]
+        Role FindByIDRole(int id);
+
 
 
     }
-
-    [DataContract]
-    public class Authentication
-    {
-        [DataMember]
-        public bool error;
-        [DataMember]
-        public string error_message;
-        [DataMember]
-        public int id_user;
-        [DataMember]
-        public int role_id;
-
-    }
+    
+    
 
 }
