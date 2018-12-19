@@ -16,125 +16,7 @@ namespace PropertyService
         readonly string connectionString = @"Data Source=DESKTOP-OG8OGQV\SQLEXPRESS;Initial Catalog=Nedviz;Integrated Security=True";
         
 
-        public void AddClients(Client client)
-        {
-            string dateBirth = client.DateBirth.ToString("d");
-            string sqlExpression = "AddClients";
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                SqlCommand command = new SqlCommand(sqlExpression, connection)
-                {
-                    CommandType = System.Data.CommandType.StoredProcedure
-                };
-
-                SqlParameter FirstNameParam = new SqlParameter
-                {
-                    ParameterName = "@FirstName",
-                    Value = client.FirstName
-                };
-                command.Parameters.Add(FirstNameParam);
-
-
-                SqlParameter LastNameParam = new SqlParameter
-                {
-                    ParameterName = "@LastName",
-                    Value = client.LastName
-                };
-                command.Parameters.Add(LastNameParam);
-
-                SqlParameter PatronymicParam = new SqlParameter
-                {
-                    ParameterName = "@Patronymic",
-                    Value = client.Patronymic
-                };
-                command.Parameters.Add(PatronymicParam);
-
-
-                SqlParameter DateBirthParam = new SqlParameter
-                {
-                    ParameterName = "@DateBirth",
-                    Value = dateBirth
-                };
-                command.Parameters.Add(DateBirthParam);
-
-                SqlParameter TelephoneParam = new SqlParameter
-                {
-                    ParameterName = "@Telephone",
-                    Value = client.Telephone
-                };
-                command.Parameters.Add(TelephoneParam);
-
-                SqlParameter AdressParam = new SqlParameter
-                {
-                    ParameterName = "@Adress",
-                    Value = client.Adress
-                };
-                command.Parameters.Add(AdressParam);
-
-                SqlParameter Users_IDParam = new SqlParameter
-                {
-                    ParameterName = "@Users_ID",
-                    Value = client.Users_ID
-                };
-                command.Parameters.Add(Users_IDParam);
-
-                var result = command.ExecuteNonQuery();
-
-                connection.Close();
-            }
-
-        }
-
-        public List<Client> SelectClients()
-        {
-            string sqlExpression = "SelectClients";
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                SqlCommand command = new SqlCommand(sqlExpression, connection)
-                {
-                    CommandType = System.Data.CommandType.StoredProcedure
-                };
-
-                var reader = command.ExecuteReader();
-
-                if (reader.HasRows)
-                {
-                    List<Client> Clients = new List<Client>();
-                    while (reader.Read())
-                    {
-                        Client client = new Client();
-
-                        int id = reader.GetInt32(0);
-                        string FirstName = reader.GetString(1);
-                        string LastName = reader.GetString(2);
-                        string Patronymic = reader.GetString(3);
-                        DateTime DateBirth = reader.GetDateTime(4);
-                        string Telephone = reader.GetString(5);
-                        string Adress = reader.GetString(6);
-                        int Users_ID = reader.GetInt32(7);
-
-                        client.id = id;
-                        client.FirstName =FirstName;
-                        client.LastName=LastName;
-                        client.Patronymic=Patronymic;
-                        client.DateBirth =DateBirth;
-                        client.Telephone=Telephone;
-                        client.Adress=Adress;
-                        client.Users_ID=Users_ID;
-
-                        Clients.Add(client);
-                    }
-                    return Clients;
-                }
-                else
-                {
-                    return null;
-                }
-
-            }
-        }
+        
         
         public void AddRole(Role role)
         {
@@ -399,57 +281,6 @@ namespace PropertyService
             }
         }
 
-        public void AddRealtor(Realtor realtor)
-        {
-            string sqlExpression = "AddRealtor";
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                SqlCommand command = new SqlCommand(sqlExpression, connection)
-                {
-                    CommandType = System.Data.CommandType.StoredProcedure
-                };
-
-                SqlParameter FirstNameParam = new SqlParameter
-                {
-                    ParameterName = "@FirstName",
-                    Value = realtor.FirstName
-                };
-                command.Parameters.Add(FirstNameParam);
-
-                SqlParameter LastNameParam = new SqlParameter
-                {
-                    ParameterName = "@LastName",
-                    Value = realtor.LastName
-                };
-                command.Parameters.Add(LastNameParam);
-
-                SqlParameter TelephoneParam = new SqlParameter
-                {
-                    ParameterName = "@Telephone",
-                    Value = realtor.Telephone
-                };
-                command.Parameters.Add(TelephoneParam);
-
-                SqlParameter PatronymicParam = new SqlParameter
-                {
-                    ParameterName = "@Patronymic",
-                    Value = realtor.Patronymic
-                };
-                command.Parameters.Add(PatronymicParam);
-
-                SqlParameter Users_IDParam = new SqlParameter
-                {
-                    ParameterName = "@Users_ID",
-                    Value = realtor.Users_ID
-                };
-                command.Parameters.Add(Users_IDParam);
-
-                var result = command.ExecuteScalar();
-                connection.Close();
-            }
-        }
-
         public List<Realtor> SelectRealtor()
         {
             string sqlExpression = "SelectRealtor";
@@ -491,6 +322,58 @@ namespace PropertyService
             }
         }
 
+        public List<Realty> SelectRealty()
+        {
+            string sqlExpression = "SelectRealty";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpression, connection)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
+
+                var reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    List<Realty> Realty= new List<Realty>();
+
+                    while (reader.Read())
+                    {
+                        Realty realty = new Realty
+                        {
+                            id = reader.GetInt32(0),
+                            TotalArea = reader.GetDecimal(1),
+                            Flor = reader.GetInt32(2),
+                            Flors = reader.GetInt32(3),
+                            Price = reader.GetDecimal(4),
+                            Descript = reader.GetString(5),
+                            City = reader.GetString(6),
+                            Street = reader.GetString(7),
+                            NumberRooms = reader.GetInt32(8),
+                            NumberHouse = reader.GetString(9),
+                            Apartment = reader.GetString(10),
+                            Status = reader.GetString(11),
+                            PropertyType_ID = reader.GetInt32(12),
+                            Object_ID = reader.GetInt32(13),
+                            HouseType_ID = reader.GetInt32(14),
+                            Users_ID = reader.GetInt32(15)
+                            
+                        };
+
+                        Realty.Add(realty);
+                    }
+                    return Realty;
+                }
+                else
+                {
+                    return null;
+                }
+
+            }
+        }
+
         public List<Users> SelectUsers()
         {
             string sqlExpression = "SelectUsers";
@@ -515,11 +398,14 @@ namespace PropertyService
                             id = reader.GetInt32(0),
                             Email = reader.GetString(1),
                             Password = reader.GetString(2),
-                            Role_ID = reader.GetInt32(3)
+                            FirstName = reader.GetString(3),
+                            LastName = reader.GetString(4),
+                            Patronymic = reader.GetString(5),
+                            Telephone = reader.GetString(6),
+                            DateBirth = reader.GetDateTime(7),
+                            Adress = reader.GetString(8),
+                            Role_ID = reader.GetInt32(9)
                         };
-
-
-
                         Users.Add(user);
                     }
                     return Users;
@@ -629,6 +515,8 @@ namespace PropertyService
         public void AddUsers(Users user)
         {
             string sqlExpression = "AddUsers";
+            string dateBirth = user.DateBirth.ToString("d");
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -651,41 +539,10 @@ namespace PropertyService
                 };
                 command.Parameters.Add(PasswordParam);
 
-                SqlParameter Role_IDParam = new SqlParameter
-                {
-                    ParameterName = "@Role_ID",
-                    Value = user.Role_ID
-                };
-                command.Parameters.Add(Role_IDParam);
-
-                var result = command.ExecuteScalar();
-                connection.Close();
-            }
-        }
-
-        public void UpdateClients(Client client)
-        {
-            string dateBirth = client.DateBirth.ToString("d");
-            string sqlExpression = "UpdateClients";
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                SqlCommand command = new SqlCommand(sqlExpression, connection)
-                {
-                    CommandType = System.Data.CommandType.StoredProcedure
-                };
-
-                SqlParameter ID_ClientsParam = new SqlParameter
-                {
-                    ParameterName = "@ID_Clients",
-                    Value = client.id
-                };
-                command.Parameters.Add(ID_ClientsParam);
-
                 SqlParameter FirstNameParam = new SqlParameter
                 {
                     ParameterName = "@FirstName",
-                    Value = client.FirstName
+                    Value = user.FirstName
                 };
                 command.Parameters.Add(FirstNameParam);
 
@@ -693,14 +550,14 @@ namespace PropertyService
                 SqlParameter LastNameParam = new SqlParameter
                 {
                     ParameterName = "@LastName",
-                    Value = client.LastName
+                    Value = user.LastName
                 };
                 command.Parameters.Add(LastNameParam);
 
                 SqlParameter PatronymicParam = new SqlParameter
                 {
                     ParameterName = "@Patronymic",
-                    Value = client.Patronymic
+                    Value = user.Patronymic
                 };
                 command.Parameters.Add(PatronymicParam);
 
@@ -715,26 +572,25 @@ namespace PropertyService
                 SqlParameter TelephoneParam = new SqlParameter
                 {
                     ParameterName = "@Telephone",
-                    Value = client.Telephone
+                    Value = user.Telephone
                 };
                 command.Parameters.Add(TelephoneParam);
 
                 SqlParameter AdressParam = new SqlParameter
                 {
                     ParameterName = "@Adress",
-                    Value = client.Adress
+                    Value = user.Adress
                 };
                 command.Parameters.Add(AdressParam);
 
-                SqlParameter Users_IDParam = new SqlParameter
+                SqlParameter Role_IDParam = new SqlParameter
                 {
-                    ParameterName = "@Users_ID",
-                    Value = client.Users_ID
+                    ParameterName = "@Role_ID",
+                    Value = user.Role_ID
                 };
-                command.Parameters.Add(Users_IDParam);
+                command.Parameters.Add(Role_IDParam);
 
-                var result = command.ExecuteNonQuery();
-
+                var result = command.ExecuteScalar();
                 connection.Close();
             }
         }
@@ -811,7 +667,13 @@ namespace PropertyService
                         user.id = id;
                         user.Email = reader.GetString(0);
                         user.Password = reader.GetString(1);
-                        user.Role_ID = reader.GetInt32(2);
+                        user.FirstName = reader.GetString(2);
+                        user.LastName = reader.GetString(3);
+                        user.Patronymic = reader.GetString(4);
+                        user.Telephone = reader.GetString(5);
+                        user.DateBirth = reader.GetDateTime(6);
+                        user.Adress = reader.GetString(7);
+                        user.Role_ID = reader.GetInt32(8);
                     }
                     return user;
                 }
@@ -937,50 +799,6 @@ namespace PropertyService
             }
         }
 
-        public Client FindByIDClient(int id)
-        {
-            string sqlFindByID = "FindByIDClient";
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                SqlCommand command = new SqlCommand(sqlFindByID, connection)
-                {
-                    CommandType = System.Data.CommandType.StoredProcedure
-                };
-
-                SqlParameter Param = new SqlParameter
-                {
-                    ParameterName = "@id",
-                    Value = id
-                };
-                command.Parameters.Add(Param);
-
-                var reader = command.ExecuteReader();
-
-                Client client = new Client();
-                if (reader.HasRows)
-                {
-                    while (reader.Read())
-                    {
-                        client.id = id;
-                        client.FirstName = reader.GetString(0);
-                        client.LastName = reader.GetString(1);
-                        client.Patronymic = reader.GetString(2);
-                        client.DateBirth = reader.GetDateTime(3);
-                        client.Telephone = reader.GetString(4);
-                        client.Adress = reader.GetString(5);
-                        client.Users_ID = reader.GetInt32(6);
-                    }
-                    return client;
-                }
-                else
-                {
-                    return null;
-                }
-
-            }
-        }
-
         public Realty FindByIdRealty(int id)
         {
             string sqlFindByID = "FindByIDRealty";
@@ -1021,52 +839,10 @@ namespace PropertyService
                         realty.PropertyType_ID = reader.GetInt32(11);
                         realty.Object_ID = reader.GetInt32(12);
                         realty.HouseType_ID = reader.GetInt32(13);
-                        realty.Clients_ID = reader.GetInt32(14);
+                        realty.Users_ID = reader.GetInt32(14);
 
                     }
                     return realty;
-                }
-                else
-                {
-                    return null;
-                }
-
-            }
-        }
-
-        public Realtor FindByIDRealtor(int id)
-        {
-            string sqlFindByID = "FindByIDRealtor";
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                SqlCommand command = new SqlCommand(sqlFindByID, connection)
-                {
-                    CommandType = System.Data.CommandType.StoredProcedure
-                };
-
-                SqlParameter Param = new SqlParameter
-                {
-                    ParameterName = "@id",
-                    Value = id
-                };
-                command.Parameters.Add(Param);
-
-                var reader = command.ExecuteReader();
-
-                Realtor realtor = new Realtor();
-                if (reader.HasRows)
-                {
-                    while (reader.Read())
-                    {
-                        realtor.id = id;
-                        realtor.FirstName = reader.GetString(0);
-                        realtor.LastName = reader.GetString(1);
-                        realtor.Patronymic = reader.GetString(2);
-                        realtor.Telephone = reader.GetString(3);
-                        realtor.Users_ID = reader.GetInt32(4);
-                    }
-                    return realtor;
                 }
                 else
                 {
@@ -1168,6 +944,12 @@ namespace PropertyService
         public int id;
         public string Email;
         public string Password;
+        public string FirstName;
+        public string LastName;
+        public string Patronymic;
+        public string Telephone;
+        public DateTime DateBirth;
+        public string Adress;
         public int Role_ID;
     }
 
@@ -1243,7 +1025,7 @@ namespace PropertyService
         public int PropertyType_ID;
         public int Object_ID;
         public int HouseType_ID;
-        public int Clients_ID;
+        public int Users_ID;
 
     }
 

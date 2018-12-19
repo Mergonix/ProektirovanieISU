@@ -12,11 +12,6 @@ namespace PropertyService
     [ServiceContract]
     public interface IService1
     {
-        [OperationContract]
-        void AddClients(Client client);
-
-        [OperationContract]
-        List<Client> SelectClients();
 
         [OperationContract]
         void AddRole(Role role);
@@ -43,10 +38,7 @@ namespace PropertyService
         List<Property_Type> SelectProperty_Type();
 
         [OperationContract]
-        void AddRealtor(Realtor realtor);
-
-        [OperationContract]
-        List<Realtor> SelectRealtor();
+        List<Realty> SelectRealty();
 
         [OperationContract]
         bool FindByEmailUsers(string Email);
@@ -72,15 +64,11 @@ namespace PropertyService
 
         [OperationContract]
         HouseType FindByIDHouseType(int id);
-
-        [OperationContract]
-        Client FindByIDClient(int id);
+        
 
         [OperationContract]
         Realty FindByIdRealty(int id);
-
-        [OperationContract]
-        Realtor FindByIDRealtor(int id);
+        
 
         [OperationContract]
         Services FindByIDServices(int id);
