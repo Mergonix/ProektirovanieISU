@@ -935,7 +935,87 @@ namespace PropertyService
             }
         }
 
+        public List<Report> ReportCount()
+        {
+            string sqlExpression = "ReportCountDesc";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpression, connection)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
 
+                var reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    List<Report> Report = new List<Report>();
+
+                    while (reader.Read())
+                    {
+                        Report report = new Report
+                        {
+                            FirstName = reader.GetString(0),
+                            LastName = reader.GetString(1),
+                            Patronymic = reader.GetString(2),
+                            Count = reader.GetInt32(3),
+                            Sum = reader.GetDecimal(4)
+                            
+                        };
+
+                        Report.Add(report);
+                    }
+                    return Report;
+                }
+                else
+                {
+                    return null;
+                }
+
+            }
+        }
+
+        public List<Report> ReportPrice()
+        {
+            string sqlExpression = "ReportPriceDesc";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpression, connection)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
+
+                var reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    List<Report> Report = new List<Report>();
+
+                    while (reader.Read())
+                    {
+                        Report report = new Report
+                        {
+                            FirstName = reader.GetString(0),
+                            LastName = reader.GetString(1),
+                            Patronymic = reader.GetString(2),
+                            Count = reader.GetInt32(3),
+                            Sum = reader.GetDecimal(4)
+
+                        };
+
+                        Report.Add(report);
+                    }
+                    return Report;
+                }
+                else
+                {
+                    return null;
+                }
+
+            }
+        }
 
     }
 
@@ -1069,6 +1149,15 @@ namespace PropertyService
     {
         public int id;
         public string Description;
+    }
+
+    public class Report
+    {
+        public string FirstName;
+        public string LastName;
+        public string Patronymic;
+        public int Count;
+        public decimal Sum;
     }
 }
 

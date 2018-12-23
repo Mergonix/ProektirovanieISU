@@ -76,7 +76,11 @@ namespace PropertyService
         [OperationContract]
         Role FindByIDRole(int id);
 
+        [OperationContract]
+        List<Report> ReportCount();
 
+        [OperationContract]
+        List<Report> ReportPrice();
 
     }
     
