@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -14,10 +15,10 @@ namespace PropertyService
     public class Service1 : IService1
     {
         readonly string connectionString = @"Data Source=DESKTOP-OG8OGQV\SQLEXPRESS;Initial Catalog=Nedviz;Integrated Security=True";
-        
 
-        
-        
+
+
+
         public void AddRole(Role role)
         {
             string sqlExpression = "AddRole";
@@ -57,7 +58,7 @@ namespace PropertyService
                 if (reader.HasRows)
                 {
                     List<Role> Roles = new List<Role>();
-                    
+
                     while (reader.Read())
                     {
                         Role role = new Role
@@ -77,7 +78,7 @@ namespace PropertyService
 
             }
         }
-        
+
         public void AddDeal(Deal deal)
         {
             string sqlExpression = "AddDeal";
@@ -337,29 +338,35 @@ namespace PropertyService
 
                 if (reader.HasRows)
                 {
-                    List<Realty> Realty= new List<Realty>();
+                    List<Realty> Realty = new List<Realty>();
 
                     while (reader.Read())
                     {
+                        string status;
+                        if (!reader.IsDBNull(11))
+                            status = reader.GetString(11);
+                        status = string.Empty;
+
+
                         Realty realty = new Realty
                         {
                             id = reader.GetInt32(0),
                             TotalArea = reader.GetDecimal(1),
                             Flor = reader.GetInt32(2),
-                            Flors = reader.GetInt32(3),
+                            Flors = reader.GetIntOrDefault(3),
                             Price = reader.GetDecimal(4),
                             Descript = reader.GetString(5),
                             City = reader.GetString(6),
                             Street = reader.GetString(7),
-                            NumberRooms = reader.GetInt32(8),
+                            NumberRooms = reader.GetIntOrDefault(8),
                             NumberHouse = reader.GetString(9),
-                            Apartment = reader.GetString(10),
-                            Status = reader.GetString(11),
+                            Apartment = reader.GetStringOrNull(10),
+                            Status = reader.GetStringOrNull(11),
                             PropertyType_ID = reader.GetInt32(12),
                             Object_ID = reader.GetInt32(13),
                             HouseType_ID = reader.GetInt32(14),
                             Users_ID = reader.GetInt32(15)
-                            
+
                         };
 
                         Realty.Add(realty);
@@ -400,10 +407,10 @@ namespace PropertyService
                             Password = reader.GetString(2),
                             FirstName = reader.GetString(3),
                             LastName = reader.GetString(4),
-                            Patronymic = reader.GetString(5),
+                            Patronymic = reader.GetStringOrNull(5),
                             Telephone = reader.GetString(6),
-                            DateBirth = reader.GetDateTime(7),
-                            Adress = reader.GetString(8),
+                            DateBirth = reader.GetDateTimeOrDefault(7),
+                            Adress = reader.GetStringOrNull(8),
                             Role_ID = reader.GetInt32(9)
                         };
                         Users.Add(user);
@@ -451,66 +458,66 @@ namespace PropertyService
         }
 
         public Authentication Authentication(string Email, string Password)
-         {
-             Authentication auth = new Authentication();
+        {
+            Authentication auth = new Authentication();
 
-             if (FindByEmailUsers(Email))
-             {
-                 string sqlExpression = "Authentication";
-                 using (SqlConnection connection = new SqlConnection(connectionString))
-                 {
-                     connection.Open();
+            if (FindByEmailUsers(Email))
+            {
+                string sqlExpression = "Authentication";
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
                     SqlCommand command = new SqlCommand(sqlExpression, connection)
                     {
                         CommandType = System.Data.CommandType.StoredProcedure
                     };
 
                     SqlParameter EmailParam = new SqlParameter
-                     {
-                         ParameterName = "@Email",
-                         Value = Email
-                     };
-                     command.Parameters.Add(EmailParam);
+                    {
+                        ParameterName = "@Email",
+                        Value = Email
+                    };
+                    command.Parameters.Add(EmailParam);
 
-                     SqlParameter PasswordParam = new SqlParameter
-                     {
-                         ParameterName = "@Password",
-                         Value = Password
-                     };
-                     command.Parameters.Add(PasswordParam);
+                    SqlParameter PasswordParam = new SqlParameter
+                    {
+                        ParameterName = "@Password",
+                        Value = Password
+                    };
+                    command.Parameters.Add(PasswordParam);
 
-                     var reader = command.ExecuteReader();
+                    var reader = command.ExecuteReader();
 
-                     if (reader.HasRows)
-                     {
-                         while (reader.Read())
-                         {
-                             int id= reader.GetInt32(0);
-                             int role_id = reader.GetInt32(1);
-                             auth.error = false;
-                             auth.error_message = null;
-                             auth.id_user = id;
-                             auth.role_id = role_id;
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            int id = reader.GetInt32(0);
+                            int role_id = reader.GetInt32(1);
+                            auth.error = false;
+                            auth.error_message = null;
+                            auth.id_user = id;
+                            auth.role_id = role_id;
 
-                         }
-                         return auth;
-                     }
-                     else
-                     {
-                         auth.error = true;
-                         auth.error_message = "Неверное имя пользователя или пароль";
-                         return auth;
-                     }
-                 }
-             }
-             else
-             {
-                 auth.error = true;
-                 auth.error_message = "Неверное имя пользователя или пароль";
-                 return auth;
-             }
+                        }
+                        return auth;
+                    }
+                    else
+                    {
+                        auth.error = true;
+                        auth.error_message = "Неверное имя пользователя или пароль";
+                        return auth;
+                    }
+                }
+            }
+            else
+            {
+                auth.error = true;
+                auth.error_message = "Неверное имя пользователя или пароль";
+                return auth;
+            }
 
-         }
+        }
 
         public void AddUsers(Users user)
         {
@@ -669,10 +676,10 @@ namespace PropertyService
                         user.Password = reader.GetString(1);
                         user.FirstName = reader.GetString(2);
                         user.LastName = reader.GetString(3);
-                        user.Patronymic = reader.GetString(4);
+                        user.Patronymic = reader.GetStringOrNull(4);
                         user.Telephone = reader.GetString(5);
-                        user.DateBirth = reader.GetDateTime(6);
-                        user.Adress = reader.GetString(7);
+                        user.DateBirth = reader.GetDateTimeOrDefault(6);
+                        user.Adress = reader.GetStringOrNull(7);
                         user.Role_ID = reader.GetInt32(8);
                     }
                     return user;
@@ -827,14 +834,14 @@ namespace PropertyService
                         realty.id = id;
                         realty.TotalArea = reader.GetDecimal(0);
                         realty.Flor = reader.GetInt32(1);
-                        realty.Flors = reader.GetInt32(2);
+                        realty.Flors = reader.GetIntOrDefault(2);
                         realty.Price = reader.GetDecimal(3);
                         realty.Descript = reader.GetString(4);
                         realty.City = reader.GetString(5);
                         realty.Street = reader.GetString(6);
-                        realty.NumberRooms = reader.GetInt32(7);
+                        realty.NumberRooms = reader.GetIntOrDefault(7);
                         realty.NumberHouse = reader.GetString(8);
-                        realty.Apartment = reader.GetString(9);
+                        realty.Apartment = reader.GetStringOrNull(9);
                         realty.Status = reader.GetString(10);
                         realty.PropertyType_ID = reader.GetInt32(11);
                         realty.Object_ID = reader.GetInt32(12);
@@ -878,7 +885,7 @@ namespace PropertyService
                     while (reader.Read())
                     {
                         services.id = id;
-                        services.Description = reader.GetString(0);
+                        services.Description = reader.GetStringOrNull(0);
                     }
                     return services;
                 }
@@ -927,8 +934,36 @@ namespace PropertyService
 
             }
         }
-        
+
+
+
     }
+
+
+    public static class DataReaderExtensions
+    {
+        public static string GetStringOrNull(this SqlDataReader reader, int colIndex)
+        {
+            if (!reader.IsDBNull(colIndex))
+                return reader.GetString(colIndex);
+            return null;
+        }
+
+        public static int GetIntOrDefault(this SqlDataReader reader, int colIndex)
+        {
+            if (!reader.IsDBNull(colIndex))
+                return reader.GetInt32(colIndex);
+            return default(int);
+        }
+
+        public static DateTime GetDateTimeOrDefault(this SqlDataReader reader, int colIndex)
+        {
+            if (!reader.IsDBNull(colIndex))
+                return reader.GetDateTime(colIndex);
+            return default(DateTime);
+        }
+    }
+
 
     public class Authentication
     {
@@ -1022,6 +1057,7 @@ namespace PropertyService
         public string NumberHouse;
         public string Apartment;
         public string Status;
+       
         public int PropertyType_ID;
         public int Object_ID;
         public int HouseType_ID;
