@@ -734,50 +734,7 @@ namespace PropertyService
             }
         }
 
-        public void UpdateUsers(Users user)
-        {
-            string sqlExpression = "UpdateUsers";
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                SqlCommand command = new SqlCommand(sqlExpression, connection)
-                {
-                    CommandType = System.Data.CommandType.StoredProcedure
-                };
-
-                SqlParameter ID_UsersParam = new SqlParameter
-                {
-                    ParameterName = "@ID_Users",
-                    Value = user.id
-                };
-                command.Parameters.Add(ID_UsersParam);
-
-                SqlParameter EmailParam = new SqlParameter
-                {
-                    ParameterName = "@Email",
-                    Value = user.Email
-                };
-                command.Parameters.Add(EmailParam);
-
-                SqlParameter PasswordParam = new SqlParameter
-                {
-                    ParameterName = "@Password",
-                    Value = user.Password
-                };
-                command.Parameters.Add(PasswordParam);
-
-                SqlParameter Role_IDParam = new SqlParameter
-                {
-                    ParameterName = "@Role_ID",
-                    Value = user.Role_ID
-                };
-                command.Parameters.Add(Role_IDParam);
-
-                var result = command.ExecuteScalar();
-                connection.Close();
-            }
-        }
-
+       
         public Users FindByIDUsers(int id)
         {
             string sqlFindByID = "FindByIDUsers";
@@ -1149,7 +1106,266 @@ namespace PropertyService
             }
         }
 
+        public List<RealtorDeal> SelectRealtorDeal(int id)
+        {
+            string sqlFindByID = "RealtorDeal";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlFindByID, connection)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
+
+                SqlParameter Param = new SqlParameter
+                {
+                    ParameterName = "@id",
+                    Value = id
+                };
+                command.Parameters.Add(Param);
+
+                var reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    List<RealtorDeal> RealtorDeal = new List<RealtorDeal>();
+
+                    while (reader.Read())
+                    {
+                        RealtorDeal realtor_deal = new RealtorDeal
+                        {
+                            Property_Type = reader.GetString(0),
+                            Services = reader.GetString(1),
+                            Price = reader.GetDecimal(2),
+                            DateDeal = reader.GetDateTime(3),
+                            Users_ID = reader.GetInt32(4)
+
+                        };
+
+                        RealtorDeal.Add(realtor_deal);
+                    }
+                    return RealtorDeal;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+
+        public void UpdateUsers(Users user)
+        {
+            string sqlExpression = "UpdateUsers";
+            string dateBirth = user.DateBirth.ToString("d");
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpression, connection)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
+
+                SqlParameter IDParam = new SqlParameter
+                {
+                    ParameterName = "@ID_Users",
+                    Value = user.id
+                };
+                command.Parameters.Add(IDParam);
+
+                SqlParameter EmailParam = new SqlParameter
+                {
+                    ParameterName = "@Email",
+                    Value = user.Email
+                };
+                command.Parameters.Add(EmailParam);
+
+                SqlParameter PasswordParam = new SqlParameter
+                {
+                    ParameterName = "@Password",
+                    Value = user.Password
+                };
+                command.Parameters.Add(PasswordParam);
+
+                SqlParameter FirstNameParam = new SqlParameter
+                {
+                    ParameterName = "@FirstName",
+                    Value = user.FirstName
+                };
+                command.Parameters.Add(FirstNameParam);
+
+
+                SqlParameter LastNameParam = new SqlParameter
+                {
+                    ParameterName = "@LastName",
+                    Value = user.LastName
+                };
+                command.Parameters.Add(LastNameParam);
+
+                SqlParameter PatronymicParam = new SqlParameter
+                {
+                    ParameterName = "@Patronymic",
+                    Value = user.Patronymic
+                };
+                command.Parameters.Add(PatronymicParam);
+
+
+                SqlParameter DateBirthParam = new SqlParameter
+                {
+                    ParameterName = "@DateBirth",
+                    Value = dateBirth
+                };
+                command.Parameters.Add(DateBirthParam);
+
+                SqlParameter TelephoneParam = new SqlParameter
+                {
+                    ParameterName = "@Telephone",
+                    Value = user.Telephone
+                };
+                command.Parameters.Add(TelephoneParam);
+
+                SqlParameter AdressParam = new SqlParameter
+                {
+                    ParameterName = "@Adress",
+                    Value = user.Adress
+                };
+                command.Parameters.Add(AdressParam);
+
+                SqlParameter Role_IDParam = new SqlParameter
+                {
+                    ParameterName = "@Role_ID",
+                    Value = user.Role_ID
+                };
+                command.Parameters.Add(Role_IDParam);
+
+                var result = command.ExecuteScalar();
+                connection.Close();
+            }
+        }
+
+        public void AddRealty(Realty realty)
+        {
+            string sqlExpression = "AddRealty";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpression, connection)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
+
+                SqlParameter TotalAreaParam = new SqlParameter
+                {
+                    ParameterName = "@TotalArea",
+                    Value = realty.TotalArea
+                };
+                command.Parameters.Add(TotalAreaParam);
+
+                SqlParameter FlorParam = new SqlParameter
+                {
+                    ParameterName = "@Flor",
+                    Value = realty.Flor
+                };
+                command.Parameters.Add(FlorParam);
+
+                SqlParameter FlorsParam = new SqlParameter
+                {
+                    ParameterName = "@Flors",
+                    Value = realty.Flors
+                };
+                command.Parameters.Add(FlorsParam);
+
+                SqlParameter PriceParam = new SqlParameter
+                {
+                    ParameterName = "@Price",
+                    Value = realty.Price
+                };
+                command.Parameters.Add(PriceParam);
+
+                SqlParameter DescriptParam = new SqlParameter
+                {
+                    ParameterName = "@Descript",
+                    Value = realty.Descript
+                };
+                command.Parameters.Add(DescriptParam);
+
+                SqlParameter CityParam = new SqlParameter
+                {
+                    ParameterName = "@City",
+                    Value = realty.City
+                };
+                command.Parameters.Add(CityParam);
+
+                SqlParameter StreetParam = new SqlParameter
+                {
+                    ParameterName = "@Street",
+                    Value = realty.Street
+                };
+                command.Parameters.Add(StreetParam);
+
+                SqlParameter NumberRoomsParam = new SqlParameter
+                {
+                    ParameterName = "@NumberRooms",
+                    Value = realty.NumberRooms
+                };
+                command.Parameters.Add(NumberRoomsParam);
+
+                SqlParameter NumberHouseParam = new SqlParameter
+                {
+                    ParameterName = "@NumberHouse",
+                    Value = realty.NumberHouse
+                };
+                command.Parameters.Add(NumberHouseParam);
+
+
+                SqlParameter ApartmentParam = new SqlParameter
+                {
+                    ParameterName = "@Apartment",
+                    Value = realty.Apartment
+                };
+                command.Parameters.Add(ApartmentParam);
+
+                SqlParameter StatusParam = new SqlParameter
+                {
+                    ParameterName = "@Status",
+                    Value = realty.Status
+                };
+                command.Parameters.Add(StatusParam);
+
+                SqlParameter PropertyType_IDParam = new SqlParameter
+                {
+                    ParameterName = "@PropertyType_ID",
+                    Value = realty.PropertyType_ID
+                };
+                command.Parameters.Add(PropertyType_IDParam);
+
+                SqlParameter Object_IDParam = new SqlParameter
+                {
+                    ParameterName = "@Object_ID",
+                    Value = realty.Object_ID
+                };
+                command.Parameters.Add(Object_IDParam);
+
+                SqlParameter HouseType_IDParam = new SqlParameter
+                {
+                    ParameterName = "@HouseType_ID",
+                    Value = realty.HouseType_ID
+                };
+                command.Parameters.Add(HouseType_IDParam);
+
+                SqlParameter Users_IDParam = new SqlParameter
+                {
+                    ParameterName = "@Users_ID",
+                    Value = realty.Users_ID
+                };
+                command.Parameters.Add(Users_IDParam);
+
+                var result = command.ExecuteScalar();
+                connection.Close();
+            }
+        }
     }
+    
 
 
     public static class DataReaderExtensions
@@ -1298,6 +1514,7 @@ namespace PropertyService
         public int Users_ID;
 
     }
+
     public class Services
     {
         public int id;
@@ -1311,6 +1528,15 @@ namespace PropertyService
         public string Patronymic;
         public int Count;
         public decimal Sum;
+    }
+
+    public class RealtorDeal
+    {
+        public string Property_Type;
+        public string Services;
+        public decimal Price;
+        public DateTime DateDeal;
+        public int Users_ID;
     }
 }
 

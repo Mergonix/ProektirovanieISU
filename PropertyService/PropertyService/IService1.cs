@@ -91,6 +91,12 @@ namespace PropertyService
         [OperationContract]
         List<Services> SelectServices();
 
+        [OperationContract]
+        List<RealtorDeal> SelectRealtorDeal(int id);
+
+        [OperationContract]
+        void AddRealty(Realty realty);
+
     }
     
     
