@@ -82,6 +82,15 @@ namespace PropertyService
         [OperationContract]
         List<Report> ReportPrice();
 
+        [OperationContract]
+        List<RealtyTable> SelectRealtyTable();
+
+        [OperationContract]
+        List<Object> SelectObject();
+
+        [OperationContract]
+        List<Services> SelectServices();
+
     }
     
     

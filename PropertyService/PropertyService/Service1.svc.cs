@@ -106,8 +106,8 @@ namespace PropertyService
 
                 SqlParameter Realtor_IDParam = new SqlParameter
                 {
-                    ParameterName = "@Realtor_ID",
-                    Value = deal.Realtor_ID
+                    ParameterName = "@Users_ID",
+                    Value = deal.Users_ID
                 };
                 command.Parameters.Add(Realtor_IDParam);
 
@@ -147,7 +147,7 @@ namespace PropertyService
                             id = reader.GetInt32(0),
                             DateDeal = reader.GetDateTime(1),
                             Realty_ID = reader.GetInt32(2),
-                            Realtor_ID = reader.GetInt32(3),
+                            Users_ID = reader.GetInt32(3),
                             Services_ID = reader.GetInt32(4)
                         };
                         Deals.Add(deal);
@@ -381,6 +381,64 @@ namespace PropertyService
             }
         }
 
+        public List<RealtyTable> SelectRealtyTable()
+        {
+            string sqlExpression = "SelectRealtyTable";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpression, connection)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
+
+                var reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    List<RealtyTable> Realty = new List<RealtyTable>();
+
+                    while (reader.Read())
+                    {
+                        string status;
+                        if (!reader.IsDBNull(11))
+                            status = reader.GetString(11);
+                        status = string.Empty;
+
+
+                        RealtyTable realty = new RealtyTable
+                        {
+                            id = reader.GetInt32(0),
+                            TotalArea = reader.GetDecimal(1),
+                            Flor = reader.GetInt32(2),
+                            Flors = reader.GetIntOrDefault(3),
+                            Price = reader.GetDecimal(4),
+                            Descript = reader.GetString(5),
+                            City = reader.GetString(6),
+                            Street = reader.GetString(7),
+                            NumberRooms = reader.GetIntOrDefault(8),
+                            NumberHouse = reader.GetString(9),
+                            Apartment = reader.GetStringOrNull(10),
+                            Status = reader.GetStringOrNull(11),
+                            PropertyType = reader.GetStringOrNull(12),
+                            Object = reader.GetStringOrNull(13),
+                            HouseType = reader.GetStringOrNull(14),
+                            Users_ID = reader.GetIntOrDefault(15)
+
+                        };
+
+                        Realty.Add(realty);
+                    }
+                    return Realty;
+                }
+                else
+                {
+                    return null;
+                }
+
+            }
+        }
+
         public List<Users> SelectUsers()
         {
             string sqlExpression = "SelectUsers";
@@ -416,6 +474,80 @@ namespace PropertyService
                         Users.Add(user);
                     }
                     return Users;
+                }
+                else
+                {
+                    return null;
+                }
+
+            }
+        }
+
+        public List<Object> SelectObject()
+        {
+            string sqlExpression = "SelectObject";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpression, connection)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
+
+                var reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    List<Object> Object = new List<Object>();
+
+                    while (reader.Read())
+                    {
+                        Object obj = new Object
+                        {
+                            id = reader.GetInt32(0),
+                            DescriptionObject = reader.GetString(1)
+                        };
+
+                        Object.Add(obj);
+                    }
+                    return Object;
+                }
+                else
+                {
+                    return null;
+                }
+
+            }
+        }
+
+        public List<Services> SelectServices()
+        {
+            string sqlExpression = "SelectServices";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpression, connection)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
+
+                var reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    List<Services> Services = new List<Services>();
+
+                    while (reader.Read())
+                    {
+                        Services services = new Services
+                        {
+                            id = reader.GetInt32(0),
+                            Description = reader.GetString(1)
+                        };
+
+                        Services.Add(services);
+                    }
+                    return Services;
                 }
                 else
                 {
@@ -1091,7 +1223,7 @@ namespace PropertyService
         public int id;
         public DateTime DateDeal;
         public int Realty_ID;
-        public int Realtor_ID;
+        public int Users_ID;
         public int Services_ID;
     }
 
@@ -1145,6 +1277,27 @@ namespace PropertyService
 
     }
 
+    public class RealtyTable
+    {
+        public int id;
+        public decimal TotalArea;
+        public int Flor;
+        public int Flors;
+        public decimal Price;
+        public string Descript;
+        public string City;
+        public string Street;
+        public int NumberRooms;
+        public string NumberHouse;
+        public string Apartment;
+        public string Status;
+
+        public string PropertyType;
+        public string Object;
+        public string HouseType;
+        public int Users_ID;
+
+    }
     public class Services
     {
         public int id;
