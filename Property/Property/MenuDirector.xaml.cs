@@ -23,5 +23,33 @@ namespace Property
         {
             InitializeComponent();
         }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow Window = new MainWindow();
+            Window.Show();
+            this.Close();
+        }
+
+        private void RatingWorkers_Click(object sender, RoutedEventArgs e)
+        {
+            RatingWorkers Window = new RatingWorkers();
+            Window.Show();
+            this.Close();
+        }
+
+        private void AboutDeals_Click(object sender, RoutedEventArgs e)
+        {
+            Transactions Window = new Transactions();
+            Window.Show();
+            this.Close();
+        }
+
+        private void ManageWorkers_Click(object sender, RoutedEventArgs e)
+        {
+            Workers Window = new Workers();
+            Window.Show();
+            this.Close();
+        }
     }
 }

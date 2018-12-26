@@ -1,18 +1,18 @@
 ﻿<Window x:Class="Property.Base_of_Clients"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Base_of_Clients" Height="500" Width="800" Background="#FF98FF98">
+        Title="База клиентов" Height="500" Width="800" Background="#FF98FF98" WindowStartupLocation="CenterScreen">
     <Grid>
         <Image x:Name="Logo" Margin="28,10,571,349" Source="Images/Logo.png"/>
         <Label Content="Недвижимость - это просто!" HorizontalAlignment="Left" Margin="258,41,0,0" VerticalAlignment="Top" Foreground="#FF3BA0E8" FontFamily="Calibri" FontSize="36" FontWeight="Bold"/>
         <TextBlock HorizontalAlignment="Left" Margin="43,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF3BA0E8" FontFamily="Calibri" FontSize="24" Width="163" TextAlignment="Center"><Run Text="База "/><Run Language="ru-ru" Text="клиентов"/></TextBlock>
         <Image HorizontalAlignment="Left" Height="173" Margin="43,239,0,0" VerticalAlignment="Top" Width="163" Source="Images/client.png"/>
-        <Button Content="Экспорт" HorizontalAlignment="Left" Margin="542,146,0,0" VerticalAlignment="Top" FontFamily="Calibri" Background="#FF3BA0E8" Foreground="White" BorderBrush="#FF3BA0E8" Width="66" Height="30" />
-        <Button Content="Печать" HorizontalAlignment="Left" Margin="613,146,0,0" VerticalAlignment="Top" FontFamily="Calibri" Background="#FF3BA0E8" Foreground="White" BorderBrush="#FF3BA0E8" Width="66" Height="30" />
-        <Button Content="Назад" HorizontalAlignment="Left" Margin="684,146,0,0" VerticalAlignment="Top" FontFamily="Calibri" Background="#FF3BA0E8" Foreground="White" BorderBrush="#FF3BA0E8" Width="66" Height="30" />
-        <DataGrid HorizontalAlignment="Left" Margin="258,192,0,0" VerticalAlignment="Top" Height="257" Width="492"/>
-        <Button Content="Добавить" HorizontalAlignment="Left" Margin="471,146,0,0" VerticalAlignment="Top" FontFamily="Calibri" Background="#FF3BA0E8" Foreground="White" BorderBrush="#FF3BA0E8" Width="66" Height="30" />
-        <TextBox HorizontalAlignment="Left" Height="29" Margin="258,146,0,0" TextWrapping="Wrap" Text="Введите параметр поиска" VerticalAlignment="Top" Width="208" Background="#FFE5E5E5" VerticalContentAlignment="Center"/>
+        <Button x:Name="Export" Content="Экспорт" HorizontalAlignment="Left" Margin="542,146,0,0" VerticalAlignment="Top" FontFamily="Calibri" Background="#FF3BA0E8" Foreground="White" BorderBrush="#FF3BA0E8" Width="66" Height="30" Click="Export_Click" />
+        <Button x:Name="Print" Content="Печать" HorizontalAlignment="Left" Margin="613,146,0,0" VerticalAlignment="Top" FontFamily="Calibri" Background="#FF3BA0E8" Foreground="White" BorderBrush="#FF3BA0E8" Width="66" Height="30" Click="Print_Click" />
+        <Button x:Name="Back" Content="Назад" HorizontalAlignment="Left" Margin="684,145,0,0" VerticalAlignment="Top" FontFamily="Calibri" Background="#FF3BA0E8" Foreground="White" BorderBrush="#FF3BA0E8" Width="66" Height="30" Click="Back_Click" />
+        <DataGrid x:Name="Clients" HorizontalAlignment="Left" Margin="258,192,0,0" VerticalAlignment="Top" Height="257" Width="492" IsReadOnly="True"/>
+        <Button x:Name="AddClient" Content="Добавить" HorizontalAlignment="Left" Margin="471,146,0,0" VerticalAlignment="Top" FontFamily="Calibri" Background="#FF3BA0E8" Foreground="White" BorderBrush="#FF3BA0E8" Width="66" Height="30" Click="AddClient_Click" />
+        <TextBox x:Name="Search" HorizontalAlignment="Left" Height="29" Margin="258,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="208" Background="#FFE5E5E5" VerticalContentAlignment="Center" TextChanged="Search_TextChanged"/>
 
     </Grid>
 </Window>

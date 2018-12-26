@@ -23,5 +23,33 @@ namespace Property
         {
             InitializeComponent();
         }
+
+        private void Clients_Click(object sender, RoutedEventArgs e)
+        {
+            Base_of_Clients Window = new Base_of_Clients();
+            Window.Show();
+            this.Close();
+        }
+
+        private void Property_Click(object sender, RoutedEventArgs e)
+        {
+            Base_of_Property Window = new Base_of_Property();
+            Window.Show();
+            this.Close();
+        }
+
+        private void Transactions_Click(object sender, RoutedEventArgs e)
+        {
+            Base_of_transactions Window = new Base_of_transactions();
+            Window.Show();
+            this.Close();
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow Window = new MainWindow();
+            Window.Show();
+            this.Close();
+        }
     }
 }

@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:28668/Service1.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:28668/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:28668/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/PropertyService" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService1_UpdateUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUsers" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddRole" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SelectRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectRole" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SelectRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddDeal_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddDeal" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddDeal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddDealResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SelectDeal_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectDeal" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SelectDeal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectDealResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddHouseType_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddHouseType" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddHouseType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddHouseTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SelectHouseType_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectHouseType" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SelectHouseType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectHouseTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddProperty_Type_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddProperty_Type" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddProperty_Type_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddProperty_TypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SelectProperty_Type_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectProperty_Type" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SelectProperty_Type_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectProperty_TypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SelectRealty_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectRealty" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SelectRealty_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectRealtyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_FindByEmailUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindByEmailUsers" />
+  </wsdl:message>
+  <wsdl:message name="IService1_FindByEmailUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindByEmailUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SelectUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectUsers" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SelectUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Authentication_InputMessage">
+    <wsdl:part name="parameters" element="tns:Authentication" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Authentication_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AuthenticationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUsers" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_FindByIDUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindByIDUsers" />
+  </wsdl:message>
+  <wsdl:message name="IService1_FindByIDUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindByIDUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_FindByIDProperty_Type_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindByIDProperty_Type" />
+  </wsdl:message>
+  <wsdl:message name="IService1_FindByIDProperty_Type_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindByIDProperty_TypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_FindByIDObject_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindByIDObject" />
+  </wsdl:message>
+  <wsdl:message name="IService1_FindByIDObject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindByIDObjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_FindByIDHouseType_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindByIDHouseType" />
+  </wsdl:message>
+  <wsdl:message name="IService1_FindByIDHouseType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindByIDHouseTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_FindByIdRealty_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindByIdRealty" />
+  </wsdl:message>
+  <wsdl:message name="IService1_FindByIdRealty_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindByIdRealtyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_FindByIDServices_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindByIDServices" />
+  </wsdl:message>
+  <wsdl:message name="IService1_FindByIDServices_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindByIDServicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_FindByIDRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindByIDRole" />
+  </wsdl:message>
+  <wsdl:message name="IService1_FindByIDRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindByIDRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ReportCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReportCount" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ReportCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReportCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ReportPrice_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReportPrice" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ReportPrice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReportPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SelectRealtyTable_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectRealtyTable" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SelectRealtyTable_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectRealtyTableResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SelectObject_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectObject" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SelectObject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectObjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SelectServices_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectServices" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SelectServices_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectServicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SelectRealtorDeal_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectRealtorDeal" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SelectRealtorDeal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectRealtorDealResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddRealty_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddRealty" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddRealty_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddRealtyResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService1">
+    <wsdl:operation name="UpdateUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateUsers" message="tns:IService1_UpdateUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateUsersResponse" message="tns:IService1_UpdateUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddRole" message="tns:IService1_AddRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddRoleResponse" message="tns:IService1_AddRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SelectRole" message="tns:IService1_SelectRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SelectRoleResponse" message="tns:IService1_SelectRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDeal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddDeal" message="tns:IService1_AddDeal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddDealResponse" message="tns:IService1_AddDeal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectDeal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SelectDeal" message="tns:IService1_SelectDeal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SelectDealResponse" message="tns:IService1_SelectDeal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddHouseType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddHouseType" message="tns:IService1_AddHouseType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddHouseTypeResponse" message="tns:IService1_AddHouseType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectHouseType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SelectHouseType" message="tns:IService1_SelectHouseType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SelectHouseTypeResponse" message="tns:IService1_SelectHouseType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddProperty_Type">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddProperty_Type" message="tns:IService1_AddProperty_Type_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddProperty_TypeResponse" message="tns:IService1_AddProperty_Type_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectProperty_Type">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SelectProperty_Type" message="tns:IService1_SelectProperty_Type_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SelectProperty_TypeResponse" message="tns:IService1_SelectProperty_Type_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectRealty">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SelectRealty" message="tns:IService1_SelectRealty_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SelectRealtyResponse" message="tns:IService1_SelectRealty_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindByEmailUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/FindByEmailUsers" message="tns:IService1_FindByEmailUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/FindByEmailUsersResponse" message="tns:IService1_FindByEmailUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SelectUsers" message="tns:IService1_SelectUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SelectUsersResponse" message="tns:IService1_SelectUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Authentication">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Authentication" message="tns:IService1_Authentication_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AuthenticationResponse" message="tns:IService1_Authentication_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddUsers" message="tns:IService1_AddUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddUsersResponse" message="tns:IService1_AddUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindByIDUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/FindByIDUsers" message="tns:IService1_FindByIDUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/FindByIDUsersResponse" message="tns:IService1_FindByIDUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindByIDProperty_Type">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/FindByIDProperty_Type" message="tns:IService1_FindByIDProperty_Type_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/FindByIDProperty_TypeResponse" message="tns:IService1_FindByIDProperty_Type_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindByIDObject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/FindByIDObject" message="tns:IService1_FindByIDObject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/FindByIDObjectResponse" message="tns:IService1_FindByIDObject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindByIDHouseType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/FindByIDHouseType" message="tns:IService1_FindByIDHouseType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/FindByIDHouseTypeResponse" message="tns:IService1_FindByIDHouseType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindByIdRealty">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/FindByIdRealty" message="tns:IService1_FindByIdRealty_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/FindByIdRealtyResponse" message="tns:IService1_FindByIdRealty_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindByIDServices">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/FindByIDServices" message="tns:IService1_FindByIDServices_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/FindByIDServicesResponse" message="tns:IService1_FindByIDServices_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindByIDRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/FindByIDRole" message="tns:IService1_FindByIDRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/FindByIDRoleResponse" message="tns:IService1_FindByIDRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReportCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ReportCount" message="tns:IService1_ReportCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ReportCountResponse" message="tns:IService1_ReportCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReportPrice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ReportPrice" message="tns:IService1_ReportPrice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ReportPriceResponse" message="tns:IService1_ReportPrice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectRealtyTable">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SelectRealtyTable" message="tns:IService1_SelectRealtyTable_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SelectRealtyTableResponse" message="tns:IService1_SelectRealtyTable_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectObject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SelectObject" message="tns:IService1_SelectObject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SelectObjectResponse" message="tns:IService1_SelectObject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectServices">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SelectServices" message="tns:IService1_SelectServices_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SelectServicesResponse" message="tns:IService1_SelectServices_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectRealtorDeal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SelectRealtorDeal" message="tns:IService1_SelectRealtorDeal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SelectRealtorDealResponse" message="tns:IService1_SelectRealtorDeal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddRealty">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddRealty" message="tns:IService1_AddRealty_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddRealtyResponse" message="tns:IService1_AddRealty_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UpdateUsers">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdateUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddRole">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectRole">
+      <soap:operation soapAction="http://tempuri.org/IService1/SelectRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDeal">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddDeal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectDeal">
+      <soap:operation soapAction="http://tempuri.org/IService1/SelectDeal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddHouseType">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddHouseType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectHouseType">
+      <soap:operation soapAction="http://tempuri.org/IService1/SelectHouseType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddProperty_Type">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddProperty_Type" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectProperty_Type">
+      <soap:operation soapAction="http://tempuri.org/IService1/SelectProperty_Type" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectRealty">
+      <soap:operation soapAction="http://tempuri.org/IService1/SelectRealty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindByEmailUsers">
+      <soap:operation soapAction="http://tempuri.org/IService1/FindByEmailUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectUsers">
+      <soap:operation soapAction="http://tempuri.org/IService1/SelectUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authentication">
+      <soap:operation soapAction="http://tempuri.org/IService1/Authentication" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUsers">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindByIDUsers">
+      <soap:operation soapAction="http://tempuri.org/IService1/FindByIDUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindByIDProperty_Type">
+      <soap:operation soapAction="http://tempuri.org/IService1/FindByIDProperty_Type" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindByIDObject">
+      <soap:operation soapAction="http://tempuri.org/IService1/FindByIDObject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindByIDHouseType">
+      <soap:operation soapAction="http://tempuri.org/IService1/FindByIDHouseType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindByIdRealty">
+      <soap:operation soapAction="http://tempuri.org/IService1/FindByIdRealty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindByIDServices">
+      <soap:operation soapAction="http://tempuri.org/IService1/FindByIDServices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindByIDRole">
+      <soap:operation soapAction="http://tempuri.org/IService1/FindByIDRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReportCount">
+      <soap:operation soapAction="http://tempuri.org/IService1/ReportCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReportPrice">
+      <soap:operation soapAction="http://tempuri.org/IService1/ReportPrice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectRealtyTable">
+      <soap:operation soapAction="http://tempuri.org/IService1/SelectRealtyTable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectObject">
+      <soap:operation soapAction="http://tempuri.org/IService1/SelectObject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectServices">
+      <soap:operation soapAction="http://tempuri.org/IService1/SelectServices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectRealtorDeal">
+      <soap:operation soapAction="http://tempuri.org/IService1/SelectRealtorDeal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddRealty">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddRealty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="BasicHttpBinding_IService1" binding="tns:BasicHttpBinding_IService1">
+      <soap:address location="http://localhost:28668/Service1.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -23,5 +23,33 @@ namespace Property
         {
             InitializeComponent();
         }
+
+        private void MyProperty_Click(object sender, RoutedEventArgs e)
+        {
+            MyProperty Window = new MyProperty();
+            Window.Show();
+            this.Close();
+        }
+
+        private void MyDeals_Click(object sender, RoutedEventArgs e)
+        {
+            Deals_of_Clients Window = new Deals_of_Clients();
+            Window.Show();
+            this.Close();
+        }
+
+        private void MyProfile_Click(object sender, RoutedEventArgs e)
+        {
+            MyProfileClient Window = new MyProfileClient();
+            Window.Show();
+            this.Close();
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow Window = new MainWindow();
+            Window.Show();
+            this.Close();
+        }
     }
 }

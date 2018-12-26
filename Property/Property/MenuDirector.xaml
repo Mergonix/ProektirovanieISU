@@ -1,16 +1,16 @@
 ﻿<Window x:Class="Property.MenuDirector"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MenuDirector" Height="500" Width="800" Background="#FF98FF98">
+        Title="Меню" Height="500" Width="800" Background="#FF98FF98" WindowStartupLocation="CenterScreen">
     <Grid>
         <Image x:Name="Logo" Margin="28,10,571,349" Source="Images/Logo.png"/>
         <Label Content="Недвижимость - это просто!" HorizontalAlignment="Left" Margin="258,41,0,0" VerticalAlignment="Top" Foreground="#FF3BA0E8" FontFamily="Calibri" FontSize="36" FontWeight="Bold"/>
         <Image HorizontalAlignment="Left" Height="238" Margin="28,156,0,0" VerticalAlignment="Top" Width="235" Source="Images/work.png"/>
         <Label Content="Меню руководителя" HorizontalAlignment="Left" Margin="325,156,0,0" VerticalAlignment="Top" Foreground="#FF3BA0E8" FontFamily="Calibri" FontSize="36" FontWeight="Bold"/>
-        <Button Content="Управление сотрудниками" HorizontalAlignment="Left" Margin="268,215,0,0" VerticalAlignment="Top" FontFamily="Calibri" Background="#FF3BA0E8" Foreground="White" BorderBrush="#FF3BA0E8" Width="439" Height="30" />
-        <Button Content="Информация о сделках" HorizontalAlignment="Left" Margin="268,250,0,0" VerticalAlignment="Top" FontFamily="Calibri" Background="#FF3BA0E8" Foreground="White" BorderBrush="#FF3BA0E8" Width="439" Height="30" />
-        <Button Content="Рейтинг сотрудников" HorizontalAlignment="Left" Margin="268,285,0,0" VerticalAlignment="Top" FontFamily="Calibri" Background="#FF3BA0E8" Foreground="White" BorderBrush="#FF3BA0E8" Width="439" Height="30" />
-        <Button Content="Выход из учетной записи" HorizontalAlignment="Left" Margin="268,320,0,0" VerticalAlignment="Top" FontFamily="Calibri" Background="#FF3BA0E8" Foreground="White" BorderBrush="#FF3BA0E8" Width="439" Height="30" />
+        <Button x:Name="ManageWorkers" Content="Управление сотрудниками" HorizontalAlignment="Left" Margin="268,215,0,0" VerticalAlignment="Top" FontFamily="Calibri" Background="#FF3BA0E8" Foreground="White" BorderBrush="#FF3BA0E8" Width="439" Height="30" Click="ManageWorkers_Click" />
+        <Button x:Name="AboutDeals" Content="Информация о сделках" HorizontalAlignment="Left" Margin="268,250,0,0" VerticalAlignment="Top" FontFamily="Calibri" Background="#FF3BA0E8" Foreground="White" BorderBrush="#FF3BA0E8" Width="439" Height="30" Click="AboutDeals_Click" />
+        <Button x:Name="RatingWorkers" Content="Рейтинг сотрудников" HorizontalAlignment="Left" Margin="268,285,0,0" VerticalAlignment="Top" FontFamily="Calibri" Background="#FF3BA0E8" Foreground="White" BorderBrush="#FF3BA0E8" Width="439" Height="30" Click="RatingWorkers_Click" />
+        <Button x:Name="Exit" Content="Выход из учетной записи" HorizontalAlignment="Left" Margin="268,320,0,0" VerticalAlignment="Top" FontFamily="Calibri" Background="#FF3BA0E8" Foreground="White" BorderBrush="#FF3BA0E8" Width="439" Height="30" Click="Exit_Click" />
 
     </Grid>
 </Window>
